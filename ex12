@@ -1,0 +1,37 @@
+using System;
+using System.Numerics;
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+
+        int lines = int.Parse(Console.ReadLine());
+     
+        for (int i = 0; i < lines; i++)
+        {
+            string input = Console.ReadLine();
+
+            int spaceIndex = input.IndexOf(' ');
+
+            long leftNumber = long.Parse(input.Substring(0, spaceIndex));
+            long rightNumber = long.Parse(input.Substring(spaceIndex + 1));
+            long numberToSum = leftNumber > rightNumber ? leftNumber : rightNumber;
+
+            int sum = 0;
+            numberToSum = Math.Abs(numberToSum);
+
+            while (numberToSum > 0)
+            {
+                sum += (int)(numberToSum % 10);
+                numberToSum /= 10;
+            }
+
+            sum = int.Parse(Console.ReadLine());
+            
+           
+            Console.WriteLine(sum);
+        }
+        
+    }
+}
